@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script type="text/javascript">
+//        document.domain="a.com";
+    </script>
+    <script src="../../jq/jquery.min.js"></script>
+</head>
+<body>
+
+
+
+<p style="font-weight: bold"; id="sub_title">子页面加载完成后，在此显示子页面title</p>
+
+<iframe width="500" height="300"id="ifrm"></iframe>
+<p>
+    <button onclick="load_sub('sub_1.html');">load sub 1</button>
+    <button onclick="load_sub('sub_2.html');">load sub 2</button>
+    <!--<button onclick="load_sub('sub_1.html');">load sub 3</button>-->
+    <button onclick="load_sub('sub_domain.html');">load domain</button>
+    <!--<button onclick="load_sub('sub_1.html');">load sub 5</button>-->
+</p>
+
+
+
+<script>
+    function load_sub(page){
+        var ifrm = $("#ifrm");
+        ifrm.attr("src",page);
+
+        ifrm.one("load",function(){
+//            var subWin = ifrm[0].contentWindow;
+            var subWin = ifrm[0].contentWindow?ifrm[0].contentWindow:ifrm[0];
+
+            alert(subWin.document.title);
+            $("#sub_title").html(subWin.document.title);
+
+            if(subWin.fun){
+                subWin.fun(document.title);
+            }
+        })
+    }
+
+
+    function fun(arg){
+        alert("main 页面fun被调用 参数是："+arg)
+    }
+
+
+
+    //跨域接收消息，对方使用posstMessage传递
+//    window.onmessage = function(evt){
+//              evt = evt||event;
+//                console.log(evt);
+//                evt.source.postMessage("back",evt.orign);
+//                $("#sub_title").html(evt.data);
+//            }
+
+</script>
+
+</body>
+</html>

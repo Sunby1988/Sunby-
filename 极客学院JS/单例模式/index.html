@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+//两个独立的对象
+//让小王和小李通过门铃通信
+//先看一下有没有门铃，如果有就直接通过门铃通讯，如果没有就建门
+//两个单例开始通讯
+
+var xiaowang = (function(){
+
+    var xiaowangjia = function(message){
+        this.menling = message;
+    }
+
+    var men;
+
+    var info = {
+        sendMessage:function(message){
+            if(!men){
+                men = new xiaowangjia(message);
+            }
+            return men;//返回给info
+        }
+    };
+
+
+    return info;
+})();
+
+var xiaoli = {
+    callXiaowang:function(msg){
+        var _xw = xiaowang.sendMessage(msg);
+        alert(_xw.menling);
+        _xw = null;//等待垃圾回收
+    }
+};
+
+    xiaoli.callXiaowang('didi');
+
+</script>
+
+
+</body>
+</html>

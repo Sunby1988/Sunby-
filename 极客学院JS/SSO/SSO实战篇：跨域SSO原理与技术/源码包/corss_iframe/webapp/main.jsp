@@ -1,0 +1,75 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>this is main page</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+// 	document.domain = "a.com";
+	
+	window.onmessage = function(evt) {
+		evt = evt || event;
+		console.log(evt);
+		evt.source.postMessage("back", evt.origin)
+		$("#sub_title").html(evt.data);
+	}
+</script>
+</head>
+<body>
+<p style="font-weight:bold;" id="sub_title">子页面加载完成后，将在此处显示子页面title</p>
+<iframe width="500" height="300" id="ifrm"></iframe>
+<p>
+	<button onclick="load_sub('sub_1.jsp');">load sub 1</button>
+	<button onclick="load_sub('sub_2.jsp');">load sub 2</button>
+	<button onclick="load_sub('http://www.b.com/sub_3.jsp');">load sub 3</button>
+	<button onclick="load_sub('http://sub.a.com/sub_domain.jsp');">load sub 4</button>
+	<button onclick="load_sub('http://www.b.com/post_msg.jsp');">load sub 5</button>
+</p>
+
+<script type="text/javascript">
+	function load_sub(page) {
+		
+		// 设置ifrm src，动态改变iframe页面内容
+		var ifrm = $("#ifrm"); // jq对象 -> [0],原生dom对象 
+		ifrm.attr("src", page);
+		
+		ifrm.one("load", function() {
+			// 父页面访问子页面，首先获得子页面window对象
+			// 可通过iframe原生DOM对象的contentWindow获得子页面window引用，兼容所有主流浏览器
+			var subWin = ifrm[0].contentWindow;  
+			//document.getElementById("ifrm");
+			
+			// 通过window.frames[iframe_id]方式获得的对象，在IE与其它浏览器上有差别
+			// IE上已得到子页面window引用，其它浏览器得到的是iFrame DOM，需要再次使用contentWindow
+// 			 var subWin = window.frames["ifrm"].contentWindow ? window.frames["ifrm"].contentWindow : window.frames["ifrm"]
+			// window.frames[0];
+			//window.frames[index] //可按索引号依次迭代页面内子页面
+// 			for (var i = 0, len = window.frames.length; i < len; ++i) {
+// 				var subWin = window.frames[i].contentWindow ? window.frames[i].contentWindow : window.frames[i]; 
+// 			}
+			
+			// 获得子页面window对象之后便可以与本页面操作一样，访问子页面各成员和方法
+			$("#sub_title").html(subWin.document.title); //获得subWin的document成员，进一步获取title
+			
+			if (subWin.fun) {
+				subWin.fun(document.title);
+			}
+		});
+		
+// 		console.log(window.frames["ifrm"].contentWindow)
+//		console.log($("#ifrm")[0].contentWindow);
+	}
+	
+	function fun(arg) {
+		alert("main页面fun方法被调用，参数为： " + arg);
+	}
+	
+	// 供子页调用，修改p#sub_title值
+	function setVal(text) {
+		$("#sub_title").html(text);
+		return "success!";
+	}
+</script>
+</body>
+</html>

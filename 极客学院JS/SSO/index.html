@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../jq/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+
+<span style="font-weight: bold;" id="container"></span>
+<br>
+<span style="font-weight: bold;" id="lab1"></span>
+<br>
+<span style="font-weight: bold;" id="lab2"></span>
+<br>
+<span style="font-weight: bold;" id="lab3"></span>
+<br>
+<span style="font-weight: bold;" id="lab4"></span>
+<br>
+<span style="font-weight: bold;" id="lab5"></span>
+
+
+<!--172.16.0.132-->
+<script>
+
+    $.ajax({url:"http://v.juhe.cn/weather/index?callback=?",
+        data:{format:2,cityname:"广州",key:"7cdcdd01d14142ff28f53b127d78cfc3"},
+        dataType:"jsonp"}).done(showResult);
+
+function showResult(ret){
+    console.log(ret);
+    $("#container").html(ret.resultcode+""+ret.reason);
+
+    var result = ret.result;
+    var sk = result.sk;
+
+    $("#lab1").html(sk.temp+"&nbsp"+sk.wind_direction);
+    $("#lab2").html(sk.wind_strength+"&nbsp"+sk.humidity);
+    $("#lab3").html(sk.time);
+
+}
+
+
+
+</script>
+
+
+
+
+<!--<script>-->
+
+    <!--function jsonp(url,parameter,callback){-->
+        <!--var script = document.createElement("script");-->
+
+        <!--var randomKey = "cbf" + new Date().getTime();-->
+        <!--window[randomKey] = callback;-->
+        <!--url += "?callback=" + randomKey;-->
+
+        <!--if(parameter){-->
+            <!--for(var p in parameter){-->
+                <!--url += "&" + p + "=" + parameter[p];-->
+            <!--}-->
+        <!--}-->
+
+        <!--script.src = url;-->
+        <!--document.body.appendChild(script);-->
+
+        <!--script.onload = function(){-->
+            <!--document.body.removeChild(script);-->
+        <!--}-->
+    <!--}-->
+
+    <!--jsonp("http://xxxx.xxxx.xxx",{test:1},showResult);-->
+    <!--jsonp("http://xxxx.xxxx.xxx",{test:1},function(ret){-->
+        <!--alert(ret.name);-->
+    <!--});-->
+
+
+    <!--// 或者-->
+
+    <!--$.ajax({url:"http://v.juhe.cn/weather/index?callback=?",-->
+        <!--data:{format:2,cityname:"广州",key:"7cdcdd01d14142ff28f53b127d78cfc3"},-->
+    <!--dataType:"jsonp"}).done(showResult);-->
+
+<!--</script>-->
+
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+
+
+body{
+    background-image: url("../1.jpeg");
+    /*是否重复*/
+    background-repeat: no-repeat;
+    /*起点*/
+    /*background-position: right top;*/
+    background-position: 50px 10px;
+
+    /*背景不跟随滚动*/
+    background-attachment: fixed;
+
+    background-size: 500px 300px;
+}
+
+
+#outer{
+    color: #000fff;
+}
+
+#outer p{
+    color: aquamarine;
+}
+
+p{
+    color: blueviolet;
+}
+
+
+#aa p{
+    color: crimson;
+}
+
+

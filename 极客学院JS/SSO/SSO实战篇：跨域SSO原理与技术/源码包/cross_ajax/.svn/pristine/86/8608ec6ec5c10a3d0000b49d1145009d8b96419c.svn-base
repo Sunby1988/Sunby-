@@ -1,0 +1,10 @@
+
+首先查看http头部有无origin字段；
+
+如果没有，或者不允许，直接当成普通请求处理，结束；
+
+如果有并且是允许的，那么再看是否是preflight(method=OPTIONS)；
+
+如果是preflight，就返回Allow-Headers、Allow-Methods等，内容为空；
+
+如果不是preflight，就返回Allow-Origin、Allow-Credentials等，并返回正常内容。

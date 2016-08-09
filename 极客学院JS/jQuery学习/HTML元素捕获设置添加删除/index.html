@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../jq/jquery.min.js"></script>
+    <script src="index.js"></script>
+
+    <style>
+        .fangkuaiDiv div{
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+            float: left;
+            margin: 5px;
+        }
+    </style>
+
+</head>
+<body>
+
+<p id="text">this is my webpage<a>这是一个A标签</a></p>
+
+<p><input type="text" id="it" value="jikexueyuan"></p>
+<button id="btn1">获取输入框的值</button>
+<p><a href="https:\\www.baidu.com" id="aid"></a></p>
+<button id="btn2">获取a标签的链接</button>
+
+<p id="p1">hello world</p>
+<p id="p2">hello world</p>
+<button id="btn3">按钮</button>
+<button id="btn4">按钮</button>
+
+<br/>
+<input type="text" id="i3" value="hello world">
+<button id="btn5">换文字</button>
+<br/>
+<br/>
+<a id="aaid" href="http://www.baidu.com" title="baidu">百度链接</a>
+<button id="btn6">变成极客学院</button>
+<br/>
+<p id="p5">回调</p>
+<button id="btn7">回调按钮</button>
+
+<br/><br/><br/>
+<h3>添加元素</h3>
+<br/>
+<p id="pad">hello world</p>
+<button id="bad">插入元素 prepend</button>
+<button id="bad1">插入元素 before</button>
+<button onclick="appendText()">方法添加元素</button>
+
+
+
+<br/><br/><br/>
+<h3>删除元素</h3>
+
+<div id="divdel" style="height: 100px;width: 200px;
+border: 1px solid black;background-color: aqua">
+    hello
+    <p id="pdel">将要删除的text</p>
+    <p id="pdel1">world</p>
+</div>
+<button id="bdel">删除</button>
+
+<br/><br/><br/>
+<h3>隐藏元素</h3>
+<p id="phid">将要隐藏的文字标签</p>
+<button id="bhid">隐藏/显示按钮</button>
+
+
+<br/>
+<br/>
+<br/>
+
+<div class="fangkuaiDiv">
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+</div>
+<br/>
+<br/>
+<br/>
+
+
+
+</body>
+</html>

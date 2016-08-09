@@ -1,0 +1,60 @@
+*{
+    margin: 0px;
+}
+
+
+.div{
+    width: 70%;
+    height: 700px;
+    background-color: red;
+    margin: 50px auto;
+}
+
+
+.p1{ cursor: default }
+.p2{ cursor: auto }
+.p3{ cursor: crosshair }
+.p4{ cursor: pointer }
+.p5{ cursor: move }
+.p6{ cursor: e-resize }
+.p7{ cursor: ne-resize }
+.p8{ cursor: nw-resize }
+.p9{ cursor: n-resize }
+.p10{ cursor: se-resize }
+.p11{ cursor: sw-resize }
+.p12{ cursor: s-resize }
+.p13{ cursor: w-resize }
+.p14{ cursor: text }
+.p15{ cursor: wait }
+.p16{ cursor: help }
+
+/*=====================================*/
+
+ul{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    background-color: burlywood;
+    width: 300px;
+    text-align: center;
+}
+
+a:link,a:visited{
+    font-weight: bold;
+    text-decoration: none;/*取消下划线*/
+    /*display: block;*/
+    background-color: burlywood;
+    color: aliceblue;
+    width: 50px;
+    text-align: center;
+}
+
+a:active ,a:hover{/*a标签的划过*/
+    background-color: #ff2e2c;
+}
+
+li{
+    display: inline;/*横向排列*/
+    padding: 3px 5px;
+}
+

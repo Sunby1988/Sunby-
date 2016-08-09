@@ -1,0 +1,34 @@
+
+
+*{
+    color: blue;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1,h2{
+    font-size: 20px;
+}
+
+h2{
+    color: red;
+}
+
+#mydiv{
+    color: cyan;
+}
+
+p i{
+    color: fuchsia;
+}
+
+/*p>strong>i{*/
+    /*color: fuchsia;*/
+    /*font-size: 30px;*/
+/*}*/
+
+li+li{
+    font-size: 50px;
+    color: #47a52c;
+}

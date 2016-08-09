@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sub_1 title</title>
+    <script src="../../jq/jquery.min.js"></script>
+</head>
+<body>
+
+<p>aaaaaa</p>
+<p>aaaaaa</p>
+<p>aaaaaa</p>
+<p>aaaaaa</p>
+
+<button onclick="callParent()">调用父页面方法</button>
+
+
+<script>
+    function callParent(arg){
+        var pwin = window.parent;
+        //如果有多层frame嵌套，window.top表示顶层窗口引用
+        //var topwin = window.top;
+
+        pwin.fun(1231239999);
+    }
+</script>
+
+
+
+</body>
+</html>
