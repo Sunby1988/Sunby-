@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+    <title>孙昌实的js项目</title>
+
+    <script src="jq/jquery.min.js"></script>
+
+    <script src="Hello.js"></script>
+    <script src="debug.js"></script>
+    <script src="hide.js"></script>
+
+    <!--<script>alert("aaaaaaaa")</script>-->
+
+
+</head>
+
+
+<!--<body onload="checkCookies()">-->
+<body>
+
+
+<h1>我的第一段 JavaScript</h1>
+
+<p id="demo">
+    JavaScript 能改变 HTML 元素的内容。
+</p>
+
+
+<!--点击改变灯泡图片-->
+<!--一个按钮添加多个方法，第二个方法，改变字体颜色-->
+<button type="button" onclick="changeWord();changeColor()">点击这里</button>
+
+
+<img id="myimage" onclick="changeImage()" src="i/eg_bulboff.gif">
+
+<p>点击灯泡来点亮或熄灭这盏灯</p>
+
+
+<!--输入框判断是否数字-->
+<div>
+    <p>请输入数字。如果输入值不是数字，浏览器会弹出提示框。</p>
+
+    <input id="textDemo" type="text">
+    <button type="button" onclick="yanzhengshuzi()">验证是否数字</button>
+</div>
+
+
+<!--修改标签字符-->
+<script>
+    document.getElementById("demo").innerHTML="My First JavaScript";
+</script>
+
+<!--测试  document.write是否覆盖全部-->
+<button type="button" onclick="docWrite()">加载完成后运行document.write 信息会全部覆盖</button>
+
+
+<div>---------------------- </div>
+<div>----------------------</div>
+<div>---------------------- </div>
+
+
+<div id="myDIV">A DIV.</div>
+<div id="myDIV1">A DIV.</div>
+<button type="button" onclick="changeMyDIVtext()">改变  A DIV 标签文字</button>
+
+
+<p id = "test">test lable</p>
+
+
+
+<script>
+    var message = "Hello world";
+    var x = message.toUpperCase();
+//    document.getElementById("test").innerHTML = x;
+    document.getElementById("test").innerText = x;
+
+</script>
+
+
+<!--自动执行询问并且跳转，或手动点击按钮-->
+
+<script>
+
+//    6秒，6000毫秒以后执行
+//    setTimeout(alertView,6000);
+</script>
+
+<button type="button" onclick="alertView()" >弹框跳转到百度或6秒后自动弹框</button>
+<!---->
+
+
+<!--代码添加一段标签文字-->
+<script>
+    debug("debugxxxxxx");
+</script>
+
+
+<button onclick="hide(this,true),debug('hide button 1')">hide1</button>
+<button onclick="hide(this),debug('hide button 2')">hide2</button>
+
+
+<div>
+    <pre>  </pre>
+    <p id="xingqiji"></p>
+<button onclick="xingqiji()">查看今天星期几</button>
+</div>
+
+
+<!--循环添加几个标签到页面上-->
+<script>
+    cars=["BMW","Volvo","Saab","Ford"];
+    for (var i=0;i<cars.length;i++)
+    {
+        document.write(cars[i] + "<br>");
+    }
+</script>
+
+
+<!--异常抛出-->
+<p>请输入 5 到 10 之间的数字：</p>
+<input id="trythrow" type="text">
+<button type="button" onclick="tryThrow()">测试输入值</button>
+<p id="mess"></p>
+
+
+
+<!--改变css样式-->
+<h1 id="id1">改变css样式</h1>
+<button type="button"
+        onclick="document.getElementById('id1').style.color='red'">
+    改变字体颜色！</button>
+
+
+<div>------------------</div>
+<div>-------输入字母变大写-----------</div>
+<div>
+    请输入英文字符：<input type="text" id="fname" onchange="clickUpWord()">
+    <p>当您离开输入字段时，会触发将输入文本转换为答谢的函数</p>
+</div>
+
+
+<div>------------------</div>
+<div>------------------</div>
+<div>------------------</div>
+<div><p>鼠标移动触发</p></div>
+<div onmouseover="mOver(this)"
+     onmouseout="mOut(this)"
+     onmousedown="mDown(this)"
+     onmouseup="mUp(this)"
+     style="background-color:#00a300;width:120px;height:20px;padding:40px;color:#3444ff;">
+    把鼠标移到上面</div>
+
+
+<div>----------------</div>
+<div>----------------</div>
+<div id="div1">
+    <p id="p1">这是一个段落。</p>
+    <p id="p2">这是另一个段落。</p>
+</div>
+<button type="button" onclick="delP()">删除一段文字</button>
+
+
+
+
+</body>
+</html>
